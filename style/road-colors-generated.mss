@@ -8,10 +8,10 @@
 @trunk-casing: #c84e2f;
 @primary-casing: #a06b00;
 @secondary-casing: #707d05;
-@motorway-fill: #e892a2;
-@trunk-fill: #f9b29c;
-@primary-fill: #fcd6a4;
-@secondary-fill: #f7fabf;
+@motorway-fill: #bea5a8;
+@trunk-fill: #d1c0ba;
+@primary-fill: #e3dcd3;
+@secondary-fill: #f7f7f1;
 @motorway-low-zoom: #e66e89;
 @trunk-low-zoom: #f6967a;
 @primary-low-zoom: #f4c37d;

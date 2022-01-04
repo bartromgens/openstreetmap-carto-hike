@@ -1,0 +1,5 @@
+colormath
+lxml
+pyyaml
+psycopg2-binary
+requests

@@ -24,6 +24,8 @@
   [waterway = 'riverbank'] {
     [int_intermittent = 'no'] {
       polygon-fill: @water-color;
+      line-width: 0.5;
+      line-color: #576be9;
       [way_pixels >= 4] { polygon-gamma: 0.75; }
       [way_pixels >= 64] { polygon-gamma: 0.6; }
     }

@@ -1,4 +1,4 @@
-@station-color: #7981b0;
+@station-color: #cf0c0c;
 @station-text: darken(saturate(@station-color, 15%), 10%);
 
 #stations {

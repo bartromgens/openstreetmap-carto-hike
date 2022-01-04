@@ -754,7 +754,8 @@
 
   [feature = 'tourism_viewpoint'][zoom >= 16] {
     marker-file: url('symbols/tourism/viewpoint.svg');
-    marker-fill: @amenity-brown;
+    marker-fill: #ff00ff;
+    marker-width: 18;
     marker-clip: false;
   }
 
@@ -1261,7 +1262,7 @@
     }
   }
 
-  [feature = 'leisure_picnic_table'][zoom >= 17] {
+  [feature = 'leisure_picnic_table'][zoom >= 15] {
     marker-file: url('symbols/tourism/picnic.svg');
     marker-fill: @man-made-icon;
     marker-clip: false;
@@ -1487,9 +1488,10 @@
   }
 
   [feature = 'barrier_gate']::barrier {
-    [zoom >= 17] {
+    [zoom >= 15] {
       marker-file: url('symbols/barrier/gate.svg');
       marker-clip: false;
+      marker-width: 12;
     }
   }
 
@@ -1551,15 +1553,16 @@
     }
   }
 
-  [feature = 'amenity_bench'][zoom >= 19]::amenity {
+  [feature = 'amenity_bench'][zoom >= 16]::amenity {
     marker-file: url('symbols/amenity/bench.svg');
-    marker-fill: @man-made-icon;
+    marker-fill: #ff00ff;
+    marker-width: 16;
     [access != ''][access != 'permissive'][access != 'yes'] {
       marker-opacity: 0.33;
     }
   }
 
-  [feature = 'amenity_waste_basket'][zoom >= 19]::amenity {
+  [feature = 'amenity_waste_basket'][zoom >= 17]::amenity {
     marker-file: url('symbols/amenity/waste_basket.svg');
     marker-fill: @man-made-icon;
     [access != ''][access != 'permissive'][access != 'yes'] {
@@ -1708,7 +1711,7 @@
   }
 
   [feature = 'amenity_car_rental'][zoom >= 17],
-  [feature = 'amenity_bicycle_rental'][zoom >= 17],
+  [feature = 'amenity_bicycle_rental'][zoom >= 16],
   [feature = 'amenity_boat_rental'][zoom >= 17],
   [feature = 'barrier_toll_booth'][zoom >= 17],
   [feature = 'leisure_slipway'][zoom >= 17] {
@@ -1780,9 +1783,9 @@
 
   [feature = 'amenity_bbq'][zoom >= 17],
   [feature = 'amenity_bicycle_repair_station'][zoom >= 19],
-  [feature = 'amenity_drinking_water'][zoom >= 17],
+  [feature = 'amenity_drinking_water'][zoom >= 15],
   [feature = 'amenity_shower'][zoom >= 18],
-  [feature = 'tourism_picnic_site'][zoom >= 17] {
+  [feature = 'tourism_picnic_site'][zoom >= 16] {
     text-name: "[name]";
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
@@ -1855,8 +1858,8 @@
     text-halo-fill: @standard-halo-fill;
   }
 
-  [feature = 'tourism_information'][zoom >= 19],
-  [feature = 'tourism_information']["information"='office'][zoom >= 17] {
+  [feature = 'tourism_information'][zoom >= 17],
+  [feature = 'tourism_information']["information"='office'][zoom >= 16] {
       text-name: "[name]";
       text-size: @standard-font-size;
       text-wrap-width: @standard-wrap-width;

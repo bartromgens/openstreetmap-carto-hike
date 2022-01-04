@@ -20,7 +20,7 @@ classes:
   mss:
     fill:
       lightness: [70, 97]
-      chroma: [35, 29]
+      chroma: [10, 3]
     casing:
       lightness: [50, 50]
       chroma: [70, 55]

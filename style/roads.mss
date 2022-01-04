@@ -7,7 +7,7 @@
 @pedestrian-fill: #dddde8;
 @raceway-fill: pink;
 @road-fill: #ddd;
-@footway-fill: salmon;
+@footway-fill: black;
 @footway-fill-noaccess: #bbbbbb;
 @steps-fill: @footway-fill;
 @steps-fill-noaccess: #bbbbbb;
@@ -15,8 +15,8 @@
 @cycleway-fill-noaccess: #9999ff;
 @bridleway-fill: green;
 @bridleway-fill-noaccess: #aaddaa;
-@track-fill: #996600;
-@track-fill-noaccess: #e2c5bb;
+@track-fill: black;
+@track-fill-noaccess: red;
 @aeroway-fill: #bbc;
 @runway-fill: @aeroway-fill;
 @taxiway-fill: @aeroway-fill;
@@ -113,9 +113,9 @@
 @residential-width-z13:           2.5;
 @living-street-width-z13:         2;
 @bridleway-width-z13:             0.3;
-@footway-width-z14:               0.7;
-@cycleway-width-z13:              0.7;
-@track-width-z13:                 0.5;
+@footway-width-z14:               2;
+@cycleway-width-z13:              1;
+@track-width-z13:                 2;
 @track-grade1-width-z13:          0.5;
 @track-grade2-width-z13:          0.5;
 
@@ -142,9 +142,9 @@
 @living-street-width-z15:         5;
 @pedestrian-width-z15:            5;
 @bridleway-width-z15:             1.2;
-@footway-width-z15:               1;
-@cycleway-width-z15:              0.9;
-@track-width-z15:                 1.5;
+@footway-width-z15:               3;
+@cycleway-width-z15:              3;
+@track-width-z15:                 3.0;
 @track-grade1-width-z15:          0.75;
 @track-grade2-width-z15:          0.75;
 @steps-width-z15:                 3;
@@ -157,8 +157,8 @@
 @road-width-z16:                  3.5;
 @service-width-z16:               3.5;
 @minor-service-width-z16:         2;
-@footway-width-z16:               1.3;
-@cycleway-width-z16:              0.9;
+@footway-width-z16:               3.0;
+@cycleway-width-z16:              3.0;
 
 @motorway-width-z17:             18;
 @motorway-link-width-z17:        12;
@@ -193,8 +193,8 @@
 @road-width-z18:                  8.5;
 @service-width-z18:               8.5;
 @minor-service-width-z18:         4.75;
-@footway-width-z18:               1.3;
-@cycleway-width-z18:              1;
+@footway-width-z18:               3.0;
+@cycleway-width-z18:              3.0;
 
 @motorway-width-z19:             27;
 @motorway-link-width-z19:        16;
@@ -213,7 +213,7 @@
 @service-width-z19:              11;
 @minor-service-width-z19:         5.5;
 @footway-width-z19:               1.6;
-@cycleway-width-z19:              1.3;
+@cycleway-width-z19:              3.0;
 
 @motorway-width-z20:             33;
 @motorway-link-width-z20:        17;
@@ -282,8 +282,6 @@
 @paths-background-width:          1;
 @paths-bridge-casing-width:       0.5;
 @paths-tunnel-casing-width:       1;
-
-@mini-roundabout-width:           4;
 
 @junction-text-color:             #960000;
 @halo-color-for-minor-road:       white;
@@ -2315,52 +2313,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #turning-circle-casing {
-  [int_tc_type = 'primary'][zoom >= 15] {
-    marker-fill: @primary-casing;
-    marker-width: @primary-width-z15 * 1.6 + 2 * @casing-width-z15;
-    marker-height: @primary-width-z15 * 1.6 + 2 * @casing-width-z15;
-    [zoom >= 17] {
-      marker-width: @primary-width-z17 * 1.6 + 2 * @casing-width-z17;
-      marker-height: @primary-width-z17 * 1.6 + 2 * @casing-width-z17;
-    }
-    [zoom >= 18] {
-      marker-width: @primary-width-z18 * 1.6 + 2 * @casing-width-z18;
-      marker-height: @primary-width-z18 * 1.6 + 2 * @casing-width-z18;
-    }
-    [zoom >= 19] {
-      marker-width: @primary-width-z19 * 1.6 + 2 * @casing-width-z19;
-      marker-height: @primary-width-z19 * 1.6 + 2 * @casing-width-z19;
-    }
-    marker-allow-overlap: true;
-    marker-ignore-placement: true;
-    marker-line-width: 0;
-  }
-
-  [int_tc_type = 'secondary'][zoom >= 15] {
-    marker-fill: @secondary-casing;
-    marker-width: @secondary-width-z15 * 1.6 + 2 * @casing-width-z15;
-    marker-height: @secondary-width-z15 * 1.6 + 2 * @casing-width-z15;
-    [zoom >= 16] {
-      marker-width: @secondary-width-z16 * 1.6 + 2 * @casing-width-z16;
-      marker-height: @secondary-width-z16 * 1.6 + 2 * @casing-width-z16;
-    }
-    [zoom >= 17] {
-      marker-width: @secondary-width-z17 * 1.6 + 2 * @casing-width-z17;
-      marker-height: @secondary-width-z17 * 1.6 + 2 * @casing-width-z17;
-    }
-    [zoom >= 18] {
-      marker-width: @secondary-width-z18 * 1.6 + 2 * @casing-width-z18;
-      marker-height: @secondary-width-z18 * 1.6 + 2 * @casing-width-z18;
-    }
-    [zoom >= 19] {
-      marker-width: @secondary-width-z19 * 1.6 + 2 * @casing-width-z19;
-      marker-height: @secondary-width-z19 * 1.6 + 2 * @casing-width-z19;
-    }
-    marker-allow-overlap: true;
-    marker-ignore-placement: true;
-    marker-line-width: 0;
-  }
-
   [int_tc_type = 'tertiary'][zoom >= 15] {
     marker-fill: @tertiary-casing;
     marker-width: @tertiary-width-z15 * 1.6 + 2 * @casing-width-z15;
@@ -2481,52 +2433,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #turning-circle-fill {
-  [int_tc_type = 'primary'][zoom >= 15] {
-    marker-fill: @primary-fill;
-    marker-width: @primary-width-z15 * 1.6;
-    marker-height: @primary-width-z15 * 1.6;
-    [zoom >= 17] {
-      marker-width: @primary-width-z17 * 1.6;
-      marker-height: @primary-width-z17 * 1.6;
-    }
-    [zoom >= 18] {
-      marker-width: @primary-width-z18 * 1.6;
-      marker-height: @primary-width-z18 * 1.6;
-    }
-    [zoom >= 19] {
-      marker-width: @primary-width-z19 * 1.6;
-      marker-height: @primary-width-z19 * 1.6;
-    }
-    marker-allow-overlap: true;
-    marker-ignore-placement: true;
-    marker-line-width: 0;
-  }
-
-  [int_tc_type = 'secondary'][zoom >= 15] {
-    marker-fill: @secondary-fill;
-    marker-width: @secondary-width-z15 * 1.6;
-    marker-height: @secondary-width-z15 * 1.6;
-    [zoom >= 16] {
-      marker-width: @secondary-width-z16 * 1.6;
-      marker-height: @secondary-width-z16 * 1.6;
-    }
-    [zoom >= 17] {
-      marker-width: @secondary-width-z17 * 1.6;
-      marker-height: @secondary-width-z17 * 1.6;
-    }
-    [zoom >= 18] {
-      marker-width: @secondary-width-z18 * 1.6;
-      marker-height: @secondary-width-z18 * 1.6;
-    }
-    [zoom >= 19] {
-      marker-width: @secondary-width-z19 * 1.6;
-      marker-height: @secondary-width-z19 * 1.6;
-    }
-    marker-allow-overlap: true;
-    marker-ignore-placement: true;
-    marker-line-width: 0;
-  }
-
   [int_tc_type = 'tertiary'][zoom >= 15] {
     marker-fill: @tertiary-fill;
     marker-width: @tertiary-width-z15 * 1.6;
@@ -2658,21 +2564,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     marker-allow-overlap: true;
     marker-ignore-placement: true;
     marker-line-width: 0;
-  }
-
-  [type = 'mini_roundabout']::circle {
-    marker-width: @mini-roundabout-width;
-    marker-allow-overlap: true;
-    marker-ignore-placement: true;
-    marker-line-width: 0;
-
-    [int_tc_type = 'primary'] { marker-fill: @primary-casing; }
-    [int_tc_type = 'secondary'] { marker-fill: @secondary-casing; }
-    [int_tc_type = 'tertiary'] { marker-fill: @primary-casing; }
-    [int_tc_type = 'residential'] { marker-fill: @residential-casing; }
-    [int_tc_type = 'living_street'] { marker-fill: @living-street-casing; }
-    [int_tc_type = 'service'] { marker-fill: @service-casing; }
-    [int_tc_type = 'track'] { marker-fill: @track-casing; }
   }
 }
 

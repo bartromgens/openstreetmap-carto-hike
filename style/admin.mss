@@ -319,130 +319,6 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   ::firstline,
   ::wideline,
   ::narrowline { comp-op: darken; }
-
-  [admin_level = '5'][zoom >= 8]::firstline {
-    background/line-join: bevel;
-    background/line-color: white;
-    background/line-width: 0.6;
-    line-join: bevel;
-    line-color: @admin-boundaries;
-    line-width: 0.6;
-    line-dasharray: 4,0.6,2,0.6;
-    line-clip: false;
-    [zoom >= 9] {
-      background/line-width: 0.8;
-      line-width: 0.8;
-      line-dasharray: 6,1,3,1;
-    }
-    [zoom >= 10] {
-      background/line-width: 1.2;
-      line-width: 1.2;
-      line-dasharray: 10,1.5,4.5,1.5;
-    }
-    [zoom >= 11] {
-      background/line-width: 1.7;
-      line-width: 1.7;
-    }
-    [zoom >= 12] {
-      background/line-width: 2.1;
-      line-width: 2.1;
-      line-dasharray: 16,2,6,2;
-    }
-    [zoom >= 14] {
-      background/line-width: 2.4;
-      line-width: 2.4;
-      line-dasharray: 20,2,8,2;
-    }
-  }
-  [admin_level = '6'][zoom >= 10]::firstline {
-    background/line-join: bevel;
-    background/line-color: white;
-    background/line-width: 1;
-    line-join: bevel;
-    line-color: @admin-boundaries;
-    line-width: 1;
-    line-dasharray: 8,1.5,1.5,1.5;
-    line-clip: false;
-    [zoom >= 11] {
-      background/line-width: 1.4;
-      line-width: 1.4;
-    }
-    [zoom >= 12] {
-      background/line-width: 1.8;
-      line-width: 1.8;
-    line-dasharray: 12,1.5,2,1.5;
-    }
-    [zoom >= 14] {
-      background/line-width: 2.1;
-      line-width: 2.1;
-      line-dasharray: 16,2,3,2;
-    }
-  }
-  [admin_level = '7']::firstline {
-    [zoom >= 11] {
-      background/line-join: bevel;
-      background/line-color: white;
-      background/line-width: 1.2;
-      line-join: bevel;
-      line-color: @admin-boundaries;
-      line-width: 1.2;
-      line-dasharray: 6,1.5,1.5,1.5,1.5,1.5;
-      line-clip: false;
-    }
-    [zoom >= 12] {
-      background/line-width: 1.5;
-      line-width: 1.5;
-      line-dasharray: 9,2,2,2,2,2;
-    }
-    [zoom >= 14] {
-      background/line-width: 1.8;
-      line-width: 1.8;
-      line-dasharray: 12,2,3,2,3,2;
-    }
-  }
-  [admin_level = '8']::firstline {
-    [zoom >= 12] {
-      background/line-join: bevel;
-      background/line-color: white;
-      background/line-width: 1.4;
-      line-join: bevel;
-      line-color: @admin-boundaries;
-      line-width: 1.4;
-      line-dasharray: 8,2,2,2,2.5,2,2,2;
-      line-clip: false;
-    }
-    [zoom >= 14] {
-      background/line-width: 1.6;
-      line-width: 1.6;
-      line-dasharray: 10,2,2,2,3,2,2,2;
-    }
-  }
-
-  [admin_level = '9'][zoom >= 13]::firstline {
-    background/line-join: bevel;
-    background/line-color: white;
-    background/line-width: 1.2;
-    line-join: bevel;
-    line-color: @admin-boundaries;
-    line-width: 1.2;
-    line-dasharray: 0,3,2,2,2,2,2,3;
-    line-clip: false;
-    [zoom >= 14] {
-      background/line-width: 1.4;
-      line-width: 1.4;
-      line-dasharray: 0,4,2,2,3,2,2,4;
-    }
-  }
-  [admin_level = '10'][zoom >= 14]::firstline {
-    background/line-join: bevel;
-    background/line-color: white;
-    background/line-width: 1.2;
-    line-join: bevel;
-    line-color: @admin-boundaries;
-    line-width: 1.2;
-    line-dasharray: 0,3,2,2,2,3;
-    line-clip: false;
-  }
 }
 
 #admin-text[zoom >= 11][way_pixels >= 196000] {
@@ -455,29 +331,14 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   [zoom >= 13][admin_level = '7'],
   [zoom >= 14][admin_level = '8'],
   [zoom >= 15][admin_level = '9'],
-  [zoom >= 16] {
-    text-name: "[name]";
-    text-face-name: @book-fonts;
-    text-fill: @state-labels;
-    [admin_level = '6'] { text-fill: @county-labels; }
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-    text-largest-bbox-only: false;
-    text-placement: line;
-    text-spacing: 750;
-    text-repeat-distance: 250;
-    text-margin: 10;
-    text-clip: true;
-    text-vertical-alignment: middle;
-    text-dy: -10;
-  }
 }
 
 #protected-areas-text[zoom >= 13][way_pixels > 192000] {
   text-name: "[name]";
   text-face-name: @book-fonts;
   text-fill: @protected-area;
-  [boundary='aboriginal_lands'] {
+  [boundary='aboriginal_lands'],
+  [boundary='protected_area'][protect_class='24'] {
     text-fill: @aboriginal;
   }
   text-halo-radius: @standard-halo-radius;

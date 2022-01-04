@@ -860,9 +860,9 @@
 }
 
 #barriers {
-  [zoom >= 16] {
-    line-width: 0.4;
-    line-color: #444;
+  [zoom >= 15] {
+    line-width: 1;
+    line-color: red;
   }
   [feature = 'barrier_hedge'][zoom >= 16] {
     line-width: 1.5;
