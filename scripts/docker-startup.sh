@@ -53,6 +53,7 @@ EOF
 
   # Downloading needed shapefiles
   scripts/get-external-data.py
+  python3 scripts/load_contour_elevation_model.py
   ;;
 
 kosmtik)

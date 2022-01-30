@@ -50,6 +50,7 @@ Stylesheet:
   - style/admin.mss
   - style/addressing.mss
   - style/golf.mss
+  - style/contour.mss
 Layer:
   - id: landcover-low-zoom
     geometry: polygon
@@ -139,6 +140,71 @@ Layer:
     properties:
       cache-features: true
       minzoom: 10
+  - id: contours10
+    geometry: multilinestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way
+         FROM contour
+         WHERE height::int % 50 != 0 AND height::int % 200 != 0
+        ) AS contours10
+    properties:
+      minzoom: 16
+  - id: contours50
+    geometry: multilinestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way
+         FROM contour
+         WHERE height::int % 50 = 0 AND height::int % 200 != 0
+        ) AS contours50
+    properties:
+      minzoom: 14
+  - id: contours200
+    geometry: multilinestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way
+         FROM contour
+         WHERE height::int % 200 = 0
+        ) AS contours200
+    properties:
+      minzoom: 12
+  - id: contours-text50
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, height
+         FROM contour
+         WHERE height::int % 50 = 0 AND height::int % 200 != 0
+         ) AS contours_text50
+    properties:
+      minzoom: 16
+  - id: contours-text200
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, height
+         FROM contour
+         WHERE height::int % 200 = 0
+        ) AS contours_text200
+    properties:
+      minzoom: 12
   - id: landcover-line
     geometry: linestring
     <<: *extents
