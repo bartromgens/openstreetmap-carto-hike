@@ -50,6 +50,8 @@
     }
     [feature = 'tourism_alpine_hut'] {
       marker-file: url('symbols/tourism/alpinehut.svg');
+      marker-width: 18;
+      marker-fill: #ff00ff;
     }
     [feature = 'amenity_shelter'] {
       marker-fill: @man-made-icon;
@@ -367,6 +369,14 @@
     marker-file: url('symbols/tourism/motel.svg');
     marker-clip: false;
     marker-fill: @accommodation-icon;
+  }
+
+  [feature = 'tourism_information'][zoom >= 15] {
+    [information = 'guidepost'] {
+      marker-file: url('symbols/tourism/guidepost.svg');
+      marker-width: 18;
+      marker-fill: #ff00ff;
+    }
   }
 
   [feature = 'tourism_information'][zoom >= 19],
@@ -714,10 +724,11 @@
     }
   }
 
-  [feature = 'amenity_drinking_water'][zoom >= 17] {
+  [feature = 'amenity_drinking_water'][zoom >= 15] {
     marker-file: url('symbols/amenity/drinking_water.svg');
-    marker-fill: @amenity-brown;
     marker-clip: false;
+    marker-width: 18;
+    marker-fill: #ff00ff;
     [access != ''][access != 'permissive'][access != 'yes'] {
       marker-opacity: 0.33;
     }
@@ -1367,8 +1378,9 @@
 
   [feature = 'natural_peak'][zoom >= 11] {
     marker-file: url('symbols/natural/peak.svg');
-    marker-fill: @landform-color;
     marker-clip: false;
+    marker-width: 12;
+    marker-fill: #ff00ff;
   }
 
   [feature = 'natural_volcano'][zoom >= 11] {
@@ -1379,8 +1391,9 @@
 
   [feature = 'natural_saddle'][zoom >= 15] {
     marker-file: url('symbols/natural/saddle.svg');
-    marker-fill: @landform-color;
+    marker-fill: #ff00ff;
     marker-clip: false;
+    marker-width: 14;
   }
 
   [feature = 'natural_spring'][zoom >= 14] {
@@ -1471,6 +1484,8 @@
     marker-file: url('symbols/man_made/cross.svg');
     marker-fill: @religious-icon;
     marker-clip: false;
+    marker-width: 18;
+    marker-fill: #ff00ff;
   }
 
   [feature = 'historic_wayside_shrine'][zoom >= 17] {
@@ -1553,7 +1568,7 @@
     }
   }
 
-  [feature = 'amenity_bench'][zoom >= 16]::amenity {
+  [feature = 'amenity_bench'][zoom >= 17]::amenity {
     marker-file: url('symbols/amenity/bench.svg');
     marker-fill: #ff00ff;
     marker-width: 16;
@@ -1840,7 +1855,7 @@
     text-line-spacing: @standard-line-spacing-size;
     text-fill: darken(@landform-color, 30%);
     [feature = 'natural_volcano'] { text-fill: #d40000; }
-    text-dy: 7;
+    text-dy: 10;
     [feature = 'tourism_viewpoint'] { text-dy: 11; }
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
